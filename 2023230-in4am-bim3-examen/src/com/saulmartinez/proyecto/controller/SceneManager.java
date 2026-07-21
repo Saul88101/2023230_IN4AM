@@ -7,7 +7,11 @@ package com.saulmartinez.proyecto.controller;
 import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import javax.swing.JOptionPane;
+import com.saulmartinez.proyecto.view.LoginView;
+import com.saulmartinez.proyecto.view.RegistroView;
+import java.awt.Color;
 
 /**
  *
@@ -34,10 +38,16 @@ public class SceneManager {
             JOptionPane.showMessageDialog(null, "Error objeto nulo");
             objetoNulo.printStackTrace();
 
-        } catch(Exception errorPadre)  {
+        } catch (Exception errorPadre) {
             JOptionPane.showMessageDialog(null, "Error objeto padre");
             errorPadre.printStackTrace();
         }
     }
-    
+
+    public void ventanaRegistro() {
+        try {
+            this.escenarioPrincipal.initStyle(StageStyle.UNDECORATED);
+        RegistroView registro = RegistroView.getInstanciaRegistroUsuarioView();
+        }
+    }
 }
