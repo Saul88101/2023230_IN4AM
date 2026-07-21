@@ -4,49 +4,27 @@
  */
 package com.saulmartinez.proyecto.view;
 
-import com.saulmartinez.proyecto.controller.AuthController;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
-import javafx.stage.Stage;
-import javafx.stage.StageStyle;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.HBox;
 
 /**
  *
  * @author Will
  */
-public class RegistroView {
-
-    private AuthController controller = new AuthController();
-
-    public void iniciarStage(Stage stageRoot) {
-        stageRoot.initStyle(StageStyle.UNDECORATED);
-
-        Label lblTitulo = new Label("Crear cuenta");
-
-        TextField txtUsername = new TextField();
-        txtUsername.setPromptText("Nombre de usuario");
-
-        TextField txtNombres = new TextField();
-        txtNombres.setPromptText("Nombres");
-
-        TextField txtApellidos = new TextField();
-        txtApellidos.setPromptText("Apellidos");
-
-        TextField txtCorreo = new TextField();
-        txtCorreo.setPromptText("Correo electrónico");
-
-        PasswordField txtPass = new PasswordField();
-        txtPass.setPromptText("Contraseña");
-
-        PasswordField txtConfirmPass = new PasswordField();
-        txtConfirmPass.setPromptText("Confirmar contraseña");
-
-        Label lblMensaje = new Label();
-
-        Button btnRegistrar = new Button("Registrar");
-        Button btnVolver = new Button("Volver al Login");
-
-    }
+public class RegistroView extends BorderPane {
+    
+    private static RegistroView instanciaRegistroUsuarioView;
+    private HBox barraDeVentana;
+    private Button btnCerrarVentana;
+    private Label lblTituloVentana;
+   
+    
+    private Label username;
+    private Label nombres;
+    private Label apellidos;
+    private Label confirmarPassword;
+    private Label correo;
+    
 }
