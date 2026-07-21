@@ -12,49 +12,62 @@ public class User {
 
     private String username;
     private String password;
+    private String nombres;
+    private String apellidos;
     private String correo;
-    private String nombreCompleto;
 
     public User() {
     }
 
-    public User(String username, String password, String correo, String nombreCompleto) {
+    public User(String username, String nombres, String apellidos, String correo, String password) {
         this.username = username;
-        this.password = password;
+        this.nombres = nombres;
+        this.apellidos = apellidos;
         this.correo = correo;
-        this.nombreCompleto = nombreCompleto;
+        this.password = password;
     }
 
     public String getUsername() {
         return username;
     }
 
-    public String getPassword() {
-        return password;
-    }
-
-    public String getCorreo() {
-        return correo;
-    }
-
-    public String getNombreCompleto() {
-        return nombreCompleto;
-    }
-
     public void setUsername(String username) {
         this.username = username;
+    }
+
+    public String getPassword() {
+        return password;
     }
 
     public void setPassword(String password) {
         this.password = password;
     }
 
+    public String getNombres() {
+        return nombres;
+    }
+
+    public void setNombres(String nombres) {
+        this.nombres = nombres;
+    }
+
+    public String getApellidos() {
+        return apellidos;
+    }
+
+    public void setApellidos(String apellidos) {
+        this.apellidos = apellidos;
+    }
+
+    public String getCorreo() {
+        return correo;
+    }
+
     public void setCorreo(String correo) {
         this.correo = correo;
     }
 
-    public void setNombreCompleto(String nombreCompleto) {
-        this.nombreCompleto = nombreCompleto;
+    public String getNombreCompleto() {
+        return nombres + " " + apellidos; //METODO PARA HACER MAS FACIL OBTENER EL NOMBRE COMPLETO
     }
-
 }

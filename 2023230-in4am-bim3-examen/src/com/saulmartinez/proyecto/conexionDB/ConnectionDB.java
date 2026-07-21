@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package com.saulmartinez.proyecto.model;
+package com.saulmartinez.proyecto.conexionDB;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -15,19 +15,18 @@ import java.sql.SQLException;
 public class ConnectionDB {
 
     private static ConnectionDB instanceConnectionDB;
-    private String userDB = "root";
-    private String claveDB = "config123";
-    private String urlJDBC = "jdbc:mysql://localhost:3306/gestor_usuarios_db_in4am";
+    private String usuario = "root";
+    private String clave = "";  // Usuario de compu de Kinal
+    private String clave2 = ""; // Mi compu personal
+    private String url = "jdbc:mysql://localhost:3306/gestor_usuarios_in4av";
     private final String DRIVER = "com.mysql.cj.jdbc.Driver";
     private Connection instanciaConnection;
 
     private ConnectionDB() {
         try {
-            //Busca la clase del Driver
             Class.forName(DRIVER);
 
-            //Crear conexion con la DB
-            instanciaConnection = DriverManager.getConnection(urlJDBC, userDB, claveDB);
+            instanciaConnection = DriverManager.getConnection(url, usuario, clave2);
 
         } catch (ClassNotFoundException errorClassNotFound) {
             System.out.println("Error de clase no encontrada");
@@ -36,7 +35,7 @@ public class ConnectionDB {
             System.out.println("Error de SQL");
 
         } catch (Exception errorPadre) {
-            System.out.println("Error de jerarquia top");
+            System.out.println("Error top");
         }
     }
 
@@ -44,10 +43,10 @@ public class ConnectionDB {
         return instanciaConnection;
     }
 
-    public void setInstanciaConnection(Connection instanciaConnection) {
-        if (instanciaConnection == null) {
-            this.instanciaConnection = instanciaConnection;
+    public static ConnectionDB getInstanceConnectionDB() {
+        if (instanceConnectionDB == null) {
+            instanceConnectionDB = new ConnectionDB();
         }
+        return instanceConnectionDB;
     }
-
 }

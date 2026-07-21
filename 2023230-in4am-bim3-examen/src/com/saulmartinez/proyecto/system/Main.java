@@ -4,17 +4,20 @@
  */
 package com.saulmartinez.proyecto.system;
 
+import javafx.application.Application;
+import javafx.stage.Stage;
+
 /**
  *
  * @author Will
  */
-public class Main {
+public class Main extends Application{
 
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+      launch(args);
     }
     
 }
